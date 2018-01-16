@@ -25,3 +25,12 @@ Feature: Query language parser
       | Russia          |
       | active          |
       | user@domain.com |
+
+
+  Scenario: Example 3
+    Given I parse 'Foo != "bar'
+    Then it should be "abc"
+    And parameters should be:
+      | Russia          |
+      | active          |
+      | user@domain.com |
