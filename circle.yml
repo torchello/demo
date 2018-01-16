@@ -2,7 +2,7 @@ machine:
     php:
         version: 7.1.9
     environment:
-        CODECOV_TOKEN: abc
+        CODECOV_TOKEN: a33499a0-e155-43a9-8840-11af3d228fb0
 
 dependencies:
     cache_directories:
