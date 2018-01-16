@@ -1,0 +1,9 @@
+extensions:
+    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+        format:
+            - clover
+        output:
+            clover: build/logs/clover.xml
+        blacklist:
+            - src/AppBundle/Features
+            - src/AppBundle/DataFixtures/ORM

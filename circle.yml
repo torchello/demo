@@ -1,0 +1,31 @@
+machine:
+    php:
+        version: 7.1.9
+    environment:
+        CODECOV_TOKEN: abc
+
+dependencies:
+    cache_directories:
+        - vendor
+        - bin
+
+    pre:
+        - rm phpspec.yml && cp phpspec.yml.test phpspec.yml
+        - rm behat.yml && cp behat.yml.test behat.yml
+        - pip install --user codecov
+        - echo "memory_limit = 512M" > /opt/circleci/php/$(phpenv global)/etc/conf.d/memory.ini
+
+    post:
+        - chmod -R 777 var/cache var/logs
+
+        - bin/console --env=test doctrine:database:create
+        - bin/console --env=test doctrine:schema:create
+        - bin/console --env=test doctrine:fixtures:load
+
+        - "php -S localhost:8080 -t web": {background: true}
+test:
+    override:
+        - bin/phpspec run -fpretty --no-interaction
+        - bin/behat @AppBundle
+    post:
+        - bash <(curl -s https://codecov.io/bash)

@@ -1,0 +1,20 @@
+default:
+    extensions:
+        Behat\Symfony2Extension: ~
+        Knp\FriendlyContexts\Extension: ~
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            base_url: 'http://127.0.0.1:8000/index.php'
+            default_session: goutte
+            selenium2: ~
+            goutte: ~
+            javascript_session: selenium2
+    suites:
+        app:
+            type: symfony_bundle
+            bundle: AppBundle
+            contexts:
+                - Knp\FriendlyContexts\Context\TableContext
+                - Knp\FriendlyContexts\Context\EntityContext
+                - AppBundle\Features\Context\FeatureContext:
+                    parser: '@parser.ql'
+                    expressionContext: '@context.expression'

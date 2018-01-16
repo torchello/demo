@@ -1,0 +1,191 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="content" role="main">
+        <!-- AUI Sidebar -->
+        <div class="aui-sidebar">
+            <div class="aui-sidebar-wrapper">
+                <div class="aui-sidebar-body">
+
+                    <!-- AUI Page Header -->
+                    <header class="aui-page-header">
+                        <div class="aui-page-header-inner">
+                            <div class="aui-page-header-image">
+
+                                <!-- AUI Avatar -->
+                                <span class="aui-avatar aui-avatar-large aui-avatar-project">
+                                <span class="aui-avatar-inner"></span>
+                            </span>
+                            </div>
+                            <div class="aui-page-header-main">
+                                <h1>
+                                    AUI Sidebar
+                                </h1>
+                                <ol class="aui-nav aui-nav-breadcrumbs">
+                                    <li>
+                                        <a href="#"><span class="aui-nav-item-label">This is a really really long title for whatever this is</span></a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- AUI Navigation -->
+                    <nav class="aui-navgroup aui-navgroup-vertical">
+                        <div class="aui-navgroup-inner">
+
+                            <!-- A Sidebar group will collapse into a single trigger icon when sidebar is collapsed -->
+                            <!-- The 'actions' sidebar group type will be styled differently from normal groups when sidebar is collapsed -->
+                            <div class="aui-sidebar-group aui-sidebar-group-actions">
+
+                                <!-- the AUI Nav heading will be used as the tooltip text -->
+                                <div class="aui-nav-heading" title="Actions">
+                                    <strong>Actions</strong>
+                                </div>
+
+                                <!-- If a sidebar group does not have a nav heading, then the aui-nav's title attribute will be used
+                                     for the tooltip for the group -->
+                                <ul class="aui-nav" title="Page actions">
+                                    <li>
+                                        <a class="aui-nav-item" href="#" title="Edit">Edit</a>
+                                    </li>
+                                    <li>
+                                        <a class="aui-nav-item" href="#" title="View">View</a>
+                                    </li>
+                                    <li>
+                                        <a class="aui-nav-item" href="#" title="Share">Share</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- A "Tier One" Sidebar group will display all of its nav items, but all nav items MUST have an AUI Icon
+                                 which will be used when the sidebar is collapsed -->
+                            <div class="aui-sidebar-group aui-sidebar-group-tier-one">
+
+                                <!-- in a "Tier One" Sidebar group, AUI Nav heading is ignored, and each nav item's label will be used
+                                     as the tooltip text instead -->
+                                <div class="aui-nav-heading" title="Stuff">
+                                    <strong>Simple Nav</strong>
+                                </div>
+
+                                <ul class="aui-nav">
+                                    <li>
+                                        <a class="aui-nav-item" href="#" title="This is a really really long title for whatever this is">
+                                            <span class="aui-icon aui-icon-small aui-iconfont-details"></span>
+                                            <span class="aui-nav-item-label">Active sprints</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Sidebar footer contains the expand/collapse trigger, and optionally a button or a dropdown with configuration settings -->
+                <div class="aui-sidebar-footer">
+                    <a href="http://example.com" class="aui-button aui-button-subtle aui-sidebar-settings-button" title="Settings">
+                        <span class="aui-icon aui-icon-small aui-iconfont-configure"></span>
+                        <span class="aui-button-label">Settings</span>
+                    </a>
+                    <a class="aui-button aui-button-subtle aui-sidebar-toggle aui-sidebar-footer-tipsy" title="Collapse sidebar ( [ )">
+                        <span class="aui-icon aui-icon-small"></span>
+                    </a>
+                </div>
+            </div>
+        </div><!-- end AUI Sidebar -->
+
+        <div class="aui-page-panel">
+            <div class="aui-page-panel-inner">
+                <section class="aui-page-panel-content">
+                    <header class="aui-page-header">
+                        <div class="aui-page-header-inner">
+                            <div class="aui-page-header-image">
+                            <span class="aui-avatar aui-avatar-large aui-avatar-project">
+                                <span class="aui-avatar-inner">
+                                </span>
+                            </span>
+                            </div>
+                            <div class="aui-page-header-main">
+                                <ol class="aui-nav aui-nav-breadcrumbs">
+                                    <li><a href="http://example.com/">Breadcrumbs</a></li>
+                                    <li><a href="http://example.com/" class="custom">Sub-page</a></li>
+                                    <li class="aui-nav-selected">Direct parent page</li>
+                                </ol>
+                                <h1>Active sprints</h1>
+                            </div>
+                        </div>
+                    </header>
+
+                    <table class="aui">
+                        <thead>
+                        <tr>
+                            <th id="name">Sprint</th>
+                            <th id="type">Participants</th>
+                            <th id="order">Status</th>
+                            <th id="action">Findings</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td headers="name">The pushers.42</td>
+                            <td headers="type">
+                                <span class="tooltip" title="Scrum master" style="color: #8eb021;">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-user"></span>
+                                </span>
+                                <span class="tooltip" title="4 developers" style="color: #3572b0;">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-user"></span><span class="aui-icon aui-icon-small aui-iconfont-user"></span><span class="aui-icon aui-icon-small aui-iconfont-user"></span><span class="aui-icon aui-icon-small aui-iconfont-user"></span>
+                                </span>
+                                <span class="tooltip" title="2 QA" style="color: #d04437;">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-user"></span><span class="aui-icon aui-icon-small aui-iconfont-user"></span>
+                                </span>
+                            </td>
+                            <td class="order" headers="order">
+                                <ul class="menu">
+                                    <li>
+                                        <a class="down" href="#">Down</a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="action" headers="action">
+                                <span class="aui-lozenge aui-lozenge-error">1 critical</span>
+                                <span class="aui-lozenge aui-lozenge-current">4 warnings</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td headers="name">Solaris.42</td>
+                            <td headers="type">
+                                <span class="tooltip" title="Scrum master" style="color: #8eb021;">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-user"></span>
+                                </span>
+                                <span class="tooltip" title="3 developers" style="color: #3572b0;">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-user"></span><span class="aui-icon aui-icon-small aui-iconfont-user"></span><span class="aui-icon aui-icon-small aui-iconfont-user"></span>
+                                </span>
+                                <span class="tooltip" title="QA" style="color: #d04437;">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-user"></span>
+                                </span>
+                            </td>
+                            <td class="order" headers="order">
+                                <ul class="menu">
+                                    <li>
+                                        <a class="up" href="#">Up</a>
+                                    </li>
+                                    <li>
+                                        <a class="down" href="#">Down</a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="action" headers="action">
+                                <span class="aui-lozenge aui-lozenge-complete">12 notices</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        AJS.$(".tooltip").tooltip({gravity: 's'});
+    </script>
+{% endblock %}

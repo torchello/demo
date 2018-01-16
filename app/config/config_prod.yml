@@ -1,0 +1,28 @@
+imports:
+    - { resource: config.yml }
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path: 'php://stderr'
+            level: debug
+        console:
+            type:  console
+
+parameters:
+    database_host: us-cdbr-iron-east-04.cleardb.net
+    database_port: null
+    database_name: heroku_32b4c3a0456b092
+    database_user: b7b3fad950c439
+    database_password: c031dbcd

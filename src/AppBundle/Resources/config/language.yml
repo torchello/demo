@@ -1,0 +1,36 @@
+language:
+    lexis:
+        regex:
+            wsp:          '/[ \r\n\t]+/'
+            conjunction:  '/OR|AND/'
+            operation:    '/!=|=/'
+            attribute:    '/ID|Country|State|Email/'
+            value:        '/\"[@\.\w]+\"/'
+        tokens: [ '(', ')']
+        skip: [ wsp ]
+
+    grammar:
+        start_rule: Expression
+        default_context: expression_context
+        rules:
+            - Expression:
+                statement: [ '(', Expression, ')' ]
+                call: { method: evaluate }
+            - Expression:
+                statement: [ Expression, conjunction, Expression ]
+                call: { method: evaluateConjunction }
+            - Expression:
+                statement: [ Expression, operation, Expression ]
+                call: { method: evaluateOperation }
+            - Expression:
+                statement: [ Value ]
+            - Expression:
+                statement: [ Attribute ]
+
+            - Value:
+                statement: [ attribute ]
+                call: { context: expression_context, method: prepareAttribute }
+
+            - Value:
+                statement: [ value ]
+                call: { context: expression_context, method: prepareValue }

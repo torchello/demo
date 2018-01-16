@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autowire: true
+
+    finder:
+        class: 'Symfony\Component\Finder\Finder'
+
+    context.expression:
+        class: 'AppBundle\Language\Context\ExpressionContext'
+        tags: ['dissect.context']
+
+    parser.ql:
+        class: 'Dark\DissectBundle\Builder\Language'
+        factory: 'dissect.language_repository:get'
+        arguments: ['ql']
+
+    property.accessor:
+        class: 'Symfony\Component\PropertyAccess\PropertyAccessor'
+        factory: ['Symfony\Component\PropertyAccess\PropertyAccess', createPropertyAccessor]
+        public: false
+
+    parser.query_filter:
+        class: 'AppBundle\Filter\Parser'
+        arguments:
+            - '@parser.ql'
+            - '@context.expression'
