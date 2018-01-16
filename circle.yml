@@ -20,7 +20,7 @@ dependencies:
 
         - bin/console --env=test doctrine:database:create
         - bin/console --env=test doctrine:schema:create
-        - bin/console --env=test doctrine:fixtures:load
+        - bin/console --env=test doctrine:fixtures:load -n
 
         - "php -S localhost:8080 -t web": {background: true}
 test:
