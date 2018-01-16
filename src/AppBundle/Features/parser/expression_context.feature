@@ -25,3 +25,9 @@ Feature: Query language parser
       | Russia          |
       | active          |
       | user@domain.com |
+
+  Scenario: Example 4
+    Given I parse 'Country != "bar"'
+    Then it should be "data.country <> ?"
+    And parameters should be:
+      | bar          |
