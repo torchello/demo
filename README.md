@@ -1,9 +1,9 @@
-# Demo application [![codecov](https://codecov.io/gh/torchello/demo/branch/master/graph/badge.svg)](https://codecov.io/gh/torchello/demo)
+# Demo application [![CircleCI](https://circleci.com/gh/torchello/demo/tree/master.svg?style=svg)](https://circleci.com/gh/torchello/demo/tree/master) [![codecov](https://codecov.io/gh/torchello/demo/branch/master/graph/badge.svg)](https://codecov.io/gh/torchello/demo)
 
 ## Overview
 The application allows to query users based on SQL-like DSL-based filter engine with a room for customization.
 
-## What's inside:
+## What's inside
 * Symfony 3
 * PHP specifications (unit tests)
 * Behat scenarios (functional tests)
