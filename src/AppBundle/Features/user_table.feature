@@ -31,6 +31,4 @@ Feature: Filter users by complex conditions
 
   Scenario: Empty result
     Given I apply filter 'ID="1" AND ID="2"'
-    Then I should see the following table:
-      | ID | Country  | State    |
-      | No users found |
+    Then I should see "No users found"
