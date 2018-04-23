@@ -19,10 +19,17 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $queryFilter = $this->get('parser.query_filter')->parse($request->query->get('filter'));
+        if ($request->query->has('filter')) {
+            $queryFilter = $this->get('parser.query_filter')->parse($request->query->get('filter'));
+            $users = $this->getDoctrine()
+                ->getRepository(User::class)
+                ->getUsersByQueryFilter($queryFilter);
 
-        return [
-            'users' => $this->getDoctrine()->getRepository(User::class)->getUsersByQueryFilter($queryFilter),
-        ];
+            return [
+                'users' => $users,
+            ];
+        }
+
+        return [];
     }
 }

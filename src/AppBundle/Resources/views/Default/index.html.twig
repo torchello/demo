@@ -1,22 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Country</th>
-            <th>State</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.country }}</td>
-                <td>{{ user.state }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="container">
+        <h3>Filter examples:</h3>
+        <ul>
+            <li><a href='/?filter=ID="1"'>ID="1"</a></li>
+            <li><a href='/?filter=ID="1" OR Country!="China"'>ID="1" OR Country!="China"</a></li>
+            <li>
+                <a href='/?filter=((ID="1" OR Country!="China") AND State="inactive")'>
+                    ((ID="1" OR Country!="China") AND State="inactive")
+                </a>
+            </li>
+            <li>
+                <a href='/?filter=((ID="1" OR Country!="China") AND State="inactive") OR ID="2"'>
+                    ((ID="1" OR Country!="China") AND State="inactive") OR ID="2"
+                </a>
+            </li>
+            <li><a href='/?filter=ID="1" AND ID="2"'>ID="1" AND ID="2"</a></li>
+        </ul>
+
+        {% if users is defined %}
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Country</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.country }}</td>
+                            <td>{{ user.state }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3">No users found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
 {% endblock %}
