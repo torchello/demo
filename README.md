@@ -14,6 +14,7 @@ The application allows to query users based on SQL-like DSL-based filter engine 
 ## Steps to run
 ```
 git clone git@github.com:torchello/demo.git
+cd demo
 composer install
 bin/console doctrine:database:create
 bin/console doctrine:schema:create
